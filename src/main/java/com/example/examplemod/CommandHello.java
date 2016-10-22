@@ -41,8 +41,8 @@ public class CommandHello implements ICommand {
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         World world = sender.getEntityWorld();
 
-        if (!world.isRemote) {
-            String v = ExampleMod.HASKELL.sayHello("NCrashed");
+        if (!world.isRemote && args.length > 0) {
+            String v = ExampleMod.HASKELL.sayHello(args[0]);
             sender.addChatMessage(new TextComponentString(v));
         }
     }
